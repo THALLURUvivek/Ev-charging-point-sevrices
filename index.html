@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SparkCharge - Future of EV Charging</title>
+  <meta name="description" content="SparkCharge - Premium EV charging network. Fast, reliable, and sustainable charging stations across the nation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader">
+      <svg viewBox="0 0 80 80" class="loader-svg">
+        <path id="bolt-path" d="M40 10 L25 40 L38 40 L28 70 L60 32 L42 32 L55 10 Z" fill="none" stroke="#00f0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-bolt"></i> Spark<span>Charge</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="toggler-bar"></span>
+        <span class="toggler-bar"></span>
+        <span class="toggler-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="stations.html">Stations</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="testimonials.html">Reviews</a></li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn-glow" href="get-started.html">Get Started</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="hero-grid-overlay"></div>
+    </div>
+    <div class="container position-relative">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-lg-6 hero-content">
+          <div class="hero-badge" data-animate="fade-up">
+            <i class="fas fa-leaf"></i> 100% Renewable Energy
+          </div>
+          <h1 class="hero-title" data-animate="fade-up">
+            Powering the<br>
+            <span class="gradient-text">Future</span> of<br>
+            Mobility
+          </h1>
+          <p class="hero-description" data-animate="fade-up">
+            Experience ultra-fast, intelligent EV charging at hundreds of stations nationwide. Charge smarter, drive cleaner, go further.
+          </p>
+          <div class="hero-actions" data-animate="fade-up">
+            <a href="#cta" class="btn-primary-glow">
+              <i class="fas fa-map-marker-alt"></i> Find a Station
+            </a>
+            <a href="#how-it-works" class="btn-outline-light-custom">
+              <i class="fas fa-play-circle"></i> Watch Demo
+            </a>
+          </div>
+          <div class="hero-stats" data-animate="fade-up">
+            <div class="hero-stat">
+              <span class="hero-stat-number" data-count="500">0</span><span class="hero-stat-suffix">+</span>
+              <span class="hero-stat-label">Stations</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-number" data-count="50">0</span><span class="hero-stat-suffix">K+</span>
+              <span class="hero-stat-label">Users</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-number" data-count="99">0</span><span class="hero-stat-suffix">%</span>
+              <span class="hero-stat-label">Uptime</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 hero-visual">
+          <div class="hero-image-wrapper" data-animate="fade-left">
+            <div class="hero-image-glow"></div>
+            <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=700&h=700&fit=crop&q=80" alt="EV Charging Station" class="hero-image" loading="eager">
+            <div class="hero-floating-card card-1">
+              <i class="fas fa-bolt"></i>
+              <div>
+                <span class="card-title">Ultra Fast</span>
+                <span class="card-text">0-80% in 18 min</span>
+              </div>
+            </div>
+            <div class="hero-floating-card card-2">
+              <i class="fas fa-shield-halved"></i>
+              <div>
+                <span class="card-title">Safe & Secure</span>
+                <span class="card-text">256-bit encryption</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <span>Scroll Down</span>
+    </div>
+  </section>
+
+  <!-- Trusted By / Logos -->
+  <section class="trusted-section">
+    <div class="container">
+      <p class="trusted-label text-center" data-animate="fade-up">Trusted by industry leaders</p>
+      <div class="row align-items-center justify-content-center trusted-logos" data-animate="fade-up">
+        <div class="col-6 col-md-3 col-lg-2">
+          <div class="trust-logo">Tesla</div>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+          <div class="trust-logo">BMW</div>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+          <div class="trust-logo">Mercedes</div>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+          <div class="trust-logo">Audi</div>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+          <div class="trust-logo">Porsche</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features-section section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mx-auto text-center mb-5">
+          <span class="section-tag" data-animate="fade-up">Why Choose Us</span>
+          <h2 class="section-title" data-animate="fade-up">
+            Smart Charging,<br><span class="gradient-text">Simpler Experience</span>
+          </h2>
+          <p class="section-subtitle" data-animate="fade-up">
+            Our cutting-edge infrastructure delivers a seamless, premium charging experience designed for the modern driver.
+          </p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6" data-animate="fade-up">
+          <div class="feature-card">
+            <div class="feature-icon-wrap">
+              <div class="feature-icon"><i class="fas fa-gauge-high"></i></div>
+            </div>
+            <h3 class="feature-title">Ultra-Fast Charging</h3>
+            <p class="feature-text">Up to 350kW DC power delivers 0-80% charge in under 20 minutes. Get back on the road faster than ever.</p>
+            <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-animate="fade-up" data-delay="0.1">
+          <div class="feature-card">
+            <div class="feature-icon-wrap">
+              <div class="feature-icon"><i class="fas fa-mobile-screen-button"></i></div>
+            </div>
+            <h3 class="feature-title">Smart App Control</h3>
+            <p class="feature-text">Reserve spots, monitor real-time availability, and manage payments all from a single intuitive app.</p>
+            <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-animate="fade-up" data-delay="0.2">
+          <div class="feature-card">
+            <div class="feature-icon-wrap">
+              <div class="feature-icon"><i class="fas fa-solar-panel"></i></div>
+            </div>
+            <h3 class="feature-title">Solar Powered</h3>
+            <p class="feature-text">Every station is backed by on-site solar arrays and battery storage for 100% clean energy charging.</p>
+            <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-animate="fade-up" data-delay="0.3">
+          <div class="feature-card">
+            <div class="feature-icon-wrap">
+              <div class="feature-icon"><i class="fas fa-route"></i></div>
+            </div>
+            <h3 class="feature-title">Route Planning</h3>
+            <p class="feature-text">AI-powered trip planning finds optimal charging stops along your route, saving time and range anxiety.</p>
+            <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-animate="fade-up" data-delay="0.4">
+          <div class="feature-card">
+            <div class="feature-icon-wrap">
+              <div class="feature-icon"><i class="fas fa-lock"></i></div>
+            </div>
+            <h3 class="feature-title">Secure Payments</h3>
+            <p class="feature-text">Tap-to-pay, Apple Pay, Google Pay, and in-app billing with bank-grade encryption on every transaction.</p>
+            <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-animate="fade-up" data-delay="0.5">
+          <div class="feature-card">
+            <div class="feature-icon-wrap">
+              <div class="feature-icon"><i class="fas fa-headset"></i></div>
+            </div>
+            <h3 class="feature-title">24/7 Support</h3>
+            <p class="feature-text">Our dedicated support team and on-site assistance ensures you're never stuck at a station.</p>
+            <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="how-section section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mx-auto text-center mb-5">
+          <span class="section-tag" data-animate="fade-up">Simple Process</span>
+          <h2 class="section-title" data-animate="fade-up">
+            How It <span class="gradient-text">Works</span>
+          </h2>
+          <p class="section-subtitle" data-animate="fade-up">
+            From plug-in to payment, the entire experience is designed to be effortless.
+          </p>
+        </div>
+      </div>
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-4 col-md-6" data-animate="fade-up">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-image-wrap">
+              <img src="https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=400&h=300&fit=crop&q=80" alt="Find Station" class="step-image" loading="lazy">
+            </div>
+            <h3 class="step-title">Find a Station</h3>
+            <p class="step-text">Open the app and discover nearby stations with real-time availability, power ratings, and pricing.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-animate="fade-up" data-delay="0.15">
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <div class="step-image-wrap">
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=300&fit=crop&q=80" alt="Plug In" class="step-image" loading="lazy">
+            </div>
+            <h3 class="step-title">Plug & Charge</h3>
+            <p class="step-text">Simply connect your vehicle. Our system auto-detects your car and begins charging instantly.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mx-auto" data-animate="fade-up" data-delay="0.3">
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-image-wrap">
+              <img src="https://images.unsplash.com/photo-1572025442646-866d16c84a54?w=400&h=300&fit=crop&q=80" alt="Drive" class="step-image" loading="lazy">
+            </div>
+            <h3 class="step-title">Drive Happy</h3>
+            <p class="step-text">Track progress in real-time, get notified when done, and drive away with a fully charged battery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats / Impact Section -->
+  <section class="stats-section">
+    <div class="stats-bg"></div>
+    <div class="container position-relative">
+      <div class="row">
+        <div class="col-lg-6 mx-auto text-center mb-5">
+          <span class="section-tag section-tag-light" data-animate="fade-up">Our Impact</span>
+          <h2 class="section-title section-title-light" data-animate="fade-up">
+            Driving <span class="gradient-text">Sustainability</span> Forward
+          </h2>
+        </div>
+      </div>
+      <div class="row g-4 text-center">
+        <div class="col-lg-3 col-6" data-animate="fade-up">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-bolt"></i></div>
+            <div class="stat-number"><span data-count="12">0</span>M+</div>
+            <div class="stat-label">kWh Delivered</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6" data-animate="fade-up" data-delay="0.1">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-tree"></i></div>
+            <div class="stat-number"><span data-count="8400">0</span></div>
+            <div class="stat-label">Trees Equivalent Saved</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6" data-animate="fade-up" data-delay="0.2">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-car"></i></div>
+            <div class="stat-number"><span data-count="52">0</span>K+</div>
+            <div class="stat-label">Cars Charged Monthly</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6" data-animate="fade-up" data-delay="0.3">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-earth-americas"></i></div>
+            <div class="stat-number"><span data-count="36">0</span></div>
+            <div class="stat-label">Cities Covered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stations Map Section -->
+  <section id="stations" class="stations-section section-padding">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-animate="fade-right">
+          <span class="section-tag">Network Coverage</span>
+          <h2 class="section-title">
+            Find a Station<br><span class="gradient-text">Near You</span>
+          </h2>
+          <p class="section-subtitle text-start">
+            Our expanding network covers major highways, urban centers, shopping districts, and residential areas. Real-time data ensures you always find an open charger.
+          </p>
+          <div class="station-features">
+            <div class="station-feature">
+              <div class="sf-icon"><i class="fas fa-map-pin"></i></div>
+              <div>
+                <h4>Live Availability</h4>
+                <p>Real-time status of every charger at every station.</p>
+              </div>
+            </div>
+            <div class="station-feature">
+              <div class="sf-icon"><i class="fas fa-filter"></i></div>
+              <div>
+                <h4>Smart Filters</h4>
+                <p>Filter by connector type, power level, and amenities.</p>
+              </div>
+            </div>
+            <div class="station-feature">
+              <div class="sf-icon"><i class="fas fa-bell"></i></div>
+              <div>
+                <h4>Notifications</h4>
+                <p>Get alerts when a charger frees up at your favorite station.</p>
+              </div>
+            </div>
+          </div>
+          <a href="#cta" class="btn-primary-glow mt-4">
+            <i class="fas fa-search"></i> Explore Stations
+          </a>
+        </div>
+        <div class="col-lg-6" data-animate="fade-left">
+          <div class="station-map-wrapper">
+            <img src="https://images.unsplash.com/photo-1545239351-ef35f43d514b?w=600&h=500&fit=crop&q=80" alt="Station Map" class="station-map-img" loading="lazy">
+            <div class="map-overlay-card">
+              <div class="map-card-icon"><i class="fas fa-location-dot"></i></div>
+              <div>
+                <span class="map-card-title">247 chargers</span>
+                <span class="map-card-sub">within 10 miles</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing-section section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mx-auto text-center mb-5">
+          <span class="section-tag" data-animate="fade-up">Transparent Pricing</span>
+          <h2 class="section-title" data-animate="fade-up">
+            Choose Your <span class="gradient-text">Plan</span>
+          </h2>
+          <p class="section-subtitle" data-animate="fade-up">
+            Pay-per-use or subscribe for unlimited savings. No hidden fees, ever.
+          </p>
+        </div>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <!-- Pay As You Go -->
+        <div class="col-lg-4 col-md-6" data-animate="fade-up">
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <span class="pricing-badge">Flexible</span>
+              <h3 class="pricing-name">Pay As You Go</h3>
+              <div class="pricing-price">
+                <span class="price-currency">$</span><span class="price-amount">0.35</span><span class="price-unit">/kWh</span>
+              </div>
+              <p class="pricing-desc">Perfect for occasional charging. Only pay for what you use.</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Access to all stations</li>
+              <li><i class="fas fa-check"></i> Standard charging speed</li>
+              <li><i class="fas fa-check"></i> In-app payments</li>
+              <li><i class="fas fa-check"></i> Basic trip planning</li>
+              <li class="inactive"><i class="fas fa-xmark"></i> Priority access</li>
+              <li class="inactive"><i class="fas fa-xmark"></i> Free idle fees</li>
+            </ul>
+            <a href="#" class="btn-pricing">Get Started</a>
+          </div>
+        </div>
+        <!-- Pro Plan -->
+        <div class="col-lg-4 col-md-6" data-animate="fade-up" data-delay="0.1">
+          <div class="pricing-card popular">
+            <div class="popular-ribbon">Most Popular</div>
+            <div class="pricing-header">
+              <span class="pricing-badge badge-pro">Pro</span>
+              <h3 class="pricing-name">Pro Membership</h3>
+              <div class="pricing-price">
+                <span class="price-currency">$</span><span class="price-amount">29</span><span class="price-unit">/month</span>
+              </div>
+              <p class="pricing-desc">Unlimited fast charging with exclusive perks and savings.</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Access to all stations</li>
+              <li><i class="fas fa-check"></i> Ultra-fast 350kW charging</li>
+              <li><i class="fas fa-check"></i> In-app payments</li>
+              <li><i class="fas fa-check"></i> AI route planning</li>
+              <li><i class="fas fa-check"></i> Priority access</li>
+              <li><i class="fas fa-check"></i> Free idle fees</li>
+            </ul>
+            <a href="#" class="btn-pricing btn-pricing-popular">Get Pro</a>
+          </div>
+        </div>
+        <!-- Enterprise -->
+        <div class="col-lg-4 col-md-6" data-animate="fade-up" data-delay="0.2">
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <span class="pricing-badge badge-ent">Enterprise</span>
+              <h3 class="pricing-name">Fleet Solutions</h3>
+              <div class="pricing-price">
+                <span class="price-currency"></span><span class="price-amount">Custom</span>
+              </div>
+              <p class="pricing-desc">Tailored solutions for businesses and fleet operators.</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Dedicated chargers</li>
+              <li><i class="fas fa-check"></i> Bulk pricing</li>
+              <li><i class="fas fa-check"></i> Fleet management dashboard</li>
+              <li><i class="fas fa-check"></i> API access</li>
+              <li><i class="fas fa-check"></i> SLA guarantee</li>
+              <li><i class="fas fa-check"></i> Dedicated account manager</li>
+            </ul>
+            <a href="#" class="btn-pricing">Contact Sales</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials-section section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mx-auto text-center mb-5">
+          <span class="section-tag" data-animate="fade-up">Testimonials</span>
+          <h2 class="section-title" data-animate="fade-up">
+            Loved by <span class="gradient-text">Thousands</span>
+          </h2>
+          <p class="section-subtitle" data-animate="fade-up">
+            See what our community of EV drivers has to say.
+          </p>
+        </div>
+      </div>
+      <div class="testimonial-carousel" data-animate="fade-up">
+        <div class="testimonial-track" id="testimonialTrack">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"SparkCharge completely changed my EV experience. I used to spend 45 minutes at chargers - now I'm in and out in 15. The app is incredibly smooth."</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&q=80" alt="Sarah M." class="testimonial-avatar" loading="lazy">
+              <div>
+                <span class="testimonial-name">Sarah Mitchell</span>
+                <span class="testimonial-role">Tesla Model 3 Owner</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"The route planner is a game changer for road trips. It finds the perfect charging stops and the stations are always clean and well-maintained."</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&q=80" alt="James K." class="testimonial-avatar" loading="lazy">
+              <div>
+                <span class="testimonial-name">James Kim</span>
+                <span class="testimonial-role">BMW iX Owner</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i>
+            </div>
+            <p class="testimonial-text">"As a fleet manager, their enterprise solution saved us 40% on energy costs. The dashboard gives us complete visibility across all vehicles."</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&q=80" alt="Priya R." class="testimonial-avatar" loading="lazy">
+              <div>
+                <span class="testimonial-name">Priya Ramirez</span>
+                <span class="testimonial-role">Fleet Manager, GreenLogistics</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"I've tried many charging networks. SparkCharge is by far the most reliable. 99% uptime claim is real - I've never had a failed session."</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&q=80" alt="David L." class="testimonial-avatar" loading="lazy">
+              <div>
+                <span class="testimonial-name">David Liu</span>
+                <span class="testimonial-role">Porsche Taycan Owner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-nav">
+          <button class="testimonial-btn" id="prevBtn" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
+          <div class="testimonial-dots" id="testimonialDots"></div>
+          <button class="testimonial-btn" id="nextBtn" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="cta" class="cta-section section-padding">
+    <div class="cta-bg-shapes">
+      <div class="cta-shape cta-shape-1"></div>
+      <div class="cta-shape cta-shape-2"></div>
+    </div>
+    <div class="container position-relative">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-animate="fade-right">
+          <span class="section-tag section-tag-light">Get Started Today</span>
+          <h2 class="section-title section-title-light">
+            Ready to Join the<br><span class="gradient-text">Electric Revolution?</span>
+          </h2>
+          <p class="cta-text">Download the SparkCharge app, find your nearest station, and experience the future of charging. First session is on us.</p>
+          <div class="cta-buttons">
+            <a href="#" class="btn-app-store">
+              <i class="fab fa-apple"></i>
+              <div>
+                <small>Download on the</small>
+                <span>App Store</span>
+              </div>
+            </a>
+            <a href="#" class="btn-app-store">
+              <i class="fab fa-google-play"></i>
+              <div>
+                <small>Get it on</small>
+                <span>Google Play</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-6" data-animate="fade-left">
+          <div class="cta-visual">
+            <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=500&h=600&fit=crop&q=80" alt="EV Charging" class="cta-image" loading="lazy">
+            <div class="cta-badge-float">
+              <div class="cta-badge-icon"><i class="fas fa-gift"></i></div>
+              <div>
+                <span class="cta-badge-title">Free First Charge</span>
+                <span class="cta-badge-sub">Up to $20 value</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a class="footer-brand" href="#">
+            <i class="fas fa-bolt"></i> Spark<span>Charge</span>
+          </a>
+          <p class="footer-desc">Powering the future of mobility with ultra-fast, sustainable EV charging solutions across the nation.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Partners</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4 class="footer-title">Product</h4>
+          <ul class="footer-links">
+            <li><a href="stations.html">Stations</a></li>
+            <li><a href="#">App</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="#">Fleet</a></li>
+            <li><a href="#">API</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4 class="footer-title">Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Station Status</a></li>
+            <li><a href="#">Safety</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4 class="footer-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Licenses</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 SparkCharge. All rights reserved. Made with <i class="fas fa-bolt" style="color: var(--accent);"></i> for a greener planet.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

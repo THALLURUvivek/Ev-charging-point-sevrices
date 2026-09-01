@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SparkCharge - How It Works</title>
+  <meta name="description" content="Learn how SparkCharge works - Find a station, plug in, and drive happy. Simple 3-step process.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader">
+      <svg viewBox="0 0 80 80" class="loader-svg">
+        <path id="bolt-path" d="M40 10 L25 40 L38 40 L28 70 L60 32 L42 32 L55 10 Z" fill="none" stroke="#00f0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-bolt"></i> Spark<span>Charge</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="toggler-bar"></span>
+        <span class="toggler-bar"></span>
+        <span class="toggler-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
+          <li class="nav-item"><a class="nav-link active" href="how-it-works.html">How It Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="stations.html">Stations</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="testimonials.html">Reviews</a></li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn-glow" href="get-started.html">Get Started</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="how-section section-padding" style="padding-top: 160px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mx-auto text-center mb-5">
+          <span class="section-tag" data-animate="fade-up">Simple Process</span>
+          <h2 class="section-title" data-animate="fade-up">
+            How It <span class="gradient-text">Works</span>
+          </h2>
+          <p class="section-subtitle" data-animate="fade-up">
+            From plug-in to payment, the entire experience is designed to be effortless.
+          </p>
+        </div>
+      </div>
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-4 col-md-6" data-animate="fade-up">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-image-wrap">
+              <img src="https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=400&h=300&fit=crop&q=80" alt="Find Station" class="step-image" loading="lazy">
+            </div>
+            <h3 class="step-title">Find a Station</h3>
+            <p class="step-text">Open the app and discover nearby stations with real-time availability, power ratings, and pricing.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-animate="fade-up" data-delay="0.15">
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <div class="step-image-wrap">
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=300&fit=crop&q=80" alt="Plug In" class="step-image" loading="lazy">
+            </div>
+            <h3 class="step-title">Plug & Charge</h3>
+            <p class="step-text">Simply connect your vehicle. Our system auto-detects your car and begins charging instantly.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mx-auto" data-animate="fade-up" data-delay="0.3">
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-image-wrap">
+              <img src="https://images.unsplash.com/photo-1572025442646-866d16c84a54?w=400&h=300&fit=crop&q=80" alt="Drive" class="step-image" loading="lazy">
+            </div>
+            <h3 class="step-title">Drive Happy</h3>
+            <p class="step-text">Track progress in real-time, get notified when done, and drive away with a fully charged battery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a class="footer-brand" href="index.html">
+            <i class="fas fa-bolt"></i> Spark<span>Charge</span>
+          </a>
+          <p class="footer-desc">Powering the future of mobility with ultra-fast, sustainable EV charging solutions across the nation.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Partners</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4 class="footer-title">Product</h4>
+          <ul class="footer-links">
+            <li><a href="stations.html">Stations</a></li>
+            <li><a href="#">App</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="#">Fleet</a></li>
+            <li><a href="#">API</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4 class="footer-title">Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Station Status</a></li>
+            <li><a href="#">Safety</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h4 class="footer-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Licenses</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 SparkCharge. All rights reserved. Made with <i class="fas fa-bolt" style="color: var(--accent);"></i> for a greener planet.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
