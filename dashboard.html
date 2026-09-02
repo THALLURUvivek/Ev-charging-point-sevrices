@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - SparkCharge</title>
+  <meta name="description" content="Your SparkCharge dashboard - usage statistics, recent charging sessions, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body data-auth-guard>
+
+  <div class="dash-wrapper">
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <a class="dash-brand" href="index.html">
+        <img src="images/image.png" alt="SparkCharge" height="24">
+      </a>
+
+      <nav class="dash-nav">
+        <span class="dash-nav-label">Main</span>
+        <a class="dash-link active" href="dashboard.html">
+          <i class="fas fa-gauge-high"></i> Dashboard
+        </a>
+        <a class="dash-link" href="charging.html">
+          <i class="fas fa-bolt"></i> Charging Sessions
+        </a>
+        <span class="dash-nav-label">Account</span>
+        <a class="dash-link" href="stations.html"><i class="fas fa-map-marker-alt"></i> Stations</a>
+        <a class="dash-link" href="payments.html"><i class="fas fa-credit-card"></i> Payments</a>
+        <a class="dash-link" id="navProfile" href="profile.html"><i class="fas fa-user"></i> Profile</a>
+      </nav>
+
+      <div class="dash-sidebar-cta">
+        <h5><i class="fas fa-star" style="color:#ffc107;"></i> Go Pro</h5>
+        <p>Unlock unlimited 350kW fast charging and priority access.</p>
+        <a href="upgrade.html" class="btn-glow">Upgrade Plan</a>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="dash-main">
+      <header class="dash-topbar">
+        <div class="dash-search">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search stations, sessions..." aria-label="Search">
+        </div>
+        <div class="dash-user">
+          <div class="dash-user-info">
+            <span class="u-name" id="userName">User</span>
+            <span class="u-plan" id="userPlan">Plan</span>
+          </div>
+          <div class="dash-avatar" id="userAvatar">U</div>
+          <button class="dash-logout-btn" id="logoutBtn" title="Sign out" aria-label="Sign out"><i class="fas fa-right-from-bracket"></i></button>
+        </div>
+      </header>
+
+      <main class="dash-content">
+        <div class="dash-page-header">
+          <h1>Welcome back, <span class="gradient-text" id="firstName">there</span></h1>
+          <p>Here's what's happening with your charging activity.</p>
+        </div>
+
+        <!-- Plan banner -->
+        <div class="plan-banner">
+          <div>
+            <h3><i class="fas fa-bolt"></i> Your plan: <span id="planName">Pay As You Go</span></h3>
+            <p id="planDesc">Pay only for the energy you use — flexible and simple.</p>
+          </div>
+          <a href="upgrade.html" class="btn-glow"><i class="fas fa-arrow-up-right-from-square"></i> Manage Plan</a>
+        </div>
+
+        <!-- Stat cards -->
+        <div class="stat-row">
+          <div class="dash-stat">
+            <div class="dash-stat-top">
+              <div class="dash-stat-icon"><i class="fas fa-bolt"></i></div>
+              <span class="trend up"><i class="fas fa-arrow-up"></i> 12%</span>
+            </div>
+            <div class="dash-stat-value" id="statEnergy">0</div>
+            <div class="dash-stat-label">kWh Charged (this month)</div>
+          </div>
+          <div class="dash-stat">
+            <div class="dash-stat-top">
+              <div class="dash-stat-icon"><i class="fas fa-clock"></i></div>
+              <span class="trend up"><i class="fas fa-arrow-up"></i> 8%</span>
+            </div>
+            <div class="dash-stat-value" id="statTime">0</div>
+            <div class="dash-stat-label">Minutes Charging</div>
+          </div>
+          <div class="dash-stat">
+            <div class="dash-stat-top">
+              <div class="dash-stat-icon"><i class="fas fa-dollar-sign"></i></div>
+              <span class="trend down"><i class="fas fa-arrow-down"></i> 5%</span>
+            </div>
+            <div class="dash-stat-value" id="statCost">0</div>
+            <div class="dash-stat-label">Total Spent</div>
+          </div>
+          <div class="dash-stat">
+            <div class="dash-stat-top">
+              <div class="dash-stat-icon"><i class="fas fa-recycle"></i></div>
+              <span class="trend up"><i class="fas fa-arrow-up"></i> great</span>
+            </div>
+            <div class="dash-stat-value" id="statCO2">0</div>
+            <div class="dash-stat-label">kg CO2 Saved</div>
+          </div>
+        </div>
+
+        <!-- Charts row -->
+        <div class="dash-row three">
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3>Energy Usage (kWh)</h3>
+              <span class="link-more">Last 7 days</span>
+            </div>
+            <div class="chart-bars" id="energyChart"></div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3>Charging Split</h3>
+            </div>
+            <div class="donut-wrap">
+              <div class="donut">
+                <svg width="150" height="150" viewBox="0 0 150 150">
+                  <circle cx="75" cy="75" r="60" fill="none" stroke="var(--bg-secondary)" stroke-width="18"/>
+                  <circle cx="75" cy="75" r="60" fill="none" stroke="var(--accent)" stroke-width="18"
+                          stroke-dasharray="220 377" stroke-linecap="round" id="donutArc"/>
+                </svg>
+                <div class="donut-center">
+                  <span class="dv" id="donutVal">58%</span>
+                  <span class="dl">Fast Charging</span>
+                </div>
+              </div>
+              <div class="donut-legend">
+                <div class="legend-item"><span class="legend-dot" style="background:var(--accent);"></span> Fast 350kW <span class="legend-val" id="legendFast">58%</span></div>
+                <div class="legend-item"><span class="legend-dot" style="background:var(--accent-alt);"></span> Standard <span class="legend-val" id="legendStd">42%</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent sessions -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <h3>Recent Charging Sessions</h3>
+            <a href="charging.html">View all <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="table-responsive">
+            <table class="sessions-table">
+              <thead>
+                <tr>
+                  <th>Station</th>
+                  <th>Date</th>
+                  <th>Duration</th>
+                  <th>Energy</th>
+                  <th>Status</th>
+                  <th>Cost</th>
+                </tr>
+              </thead>
+              <tbody id="recentSessionsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/error-boundary.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

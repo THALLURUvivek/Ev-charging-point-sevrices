@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stations - SparkCharge</title>
-  <meta name="description" content="Find and view SparkCharge charging stations near you, filter by charger type and availability.">
+  <title>Charging Sessions - SparkCharge</title>
+  <meta name="description" content="View and manage your SparkCharge charging sessions, filter by status, and download invoices.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -27,11 +27,11 @@
         <a class="dash-link" href="dashboard.html">
           <i class="fas fa-gauge-high"></i> Dashboard
         </a>
-        <a class="dash-link" href="charging.html">
+        <a class="dash-link active" href="charging.html">
           <i class="fas fa-bolt"></i> Charging Sessions
         </a>
         <span class="dash-nav-label">Account</span>
-        <a class="dash-link active" href="stations.html"><i class="fas fa-map-marker-alt"></i> Stations</a>
+        <a class="dash-link" href="stations.html"><i class="fas fa-map-marker-alt"></i> Stations</a>
         <a class="dash-link" href="payments.html"><i class="fas fa-credit-card"></i> Payments</a>
         <a class="dash-link" id="navProfile" href="profile.html"><i class="fas fa-user"></i> Profile</a>
       </nav>
@@ -48,7 +48,7 @@
       <header class="dash-topbar">
         <div class="dash-search">
           <i class="fas fa-search"></i>
-          <input type="text" placeholder="Search stations..." id="stationSearch" aria-label="Search stations">
+          <input type="text" placeholder="Search stations, sessions..." id="sessionSearch" aria-label="Search sessions">
         </div>
         <div class="dash-user">
           <div class="dash-user-info">
@@ -62,32 +62,71 @@
 
       <main class="dash-content">
         <div class="dash-page-header">
-          <h1>Charging <span class="gradient-text">Stations</span></h1>
-          <p>Find a station near you and check real-time charger availability.</p>
+          <h1>Charging <span class="gradient-text">Sessions</span></h1>
+          <p>View, filter, and manage all of your charging history.</p>
+        </div>
+
+        <!-- Summary strip -->
+        <div class="dash-summary-strip">
+          <div class="summary-item">
+            <i class="fas fa-bolt"></i>
+            <div><strong id="sumSessions">0</strong><span>Total Sessions</span></div>
+          </div>
+          <div class="summary-item">
+            <i class="fas fa-battery-full"></i>
+            <div><strong id="sumEnergy">0</strong><span>kWh Delivered</span></div>
+          </div>
+          <div class="summary-item">
+            <i class="fas fa-dollar-sign"></i>
+            <div><strong id="sumCost">0</strong><span>Total Cost</span></div>
+          </div>
+          <div class="summary-item">
+            <i class="fas fa-clock"></i>
+            <div><strong id="sumTime">0</strong><span>Minutes Charging</span></div>
+          </div>
         </div>
 
         <!-- Filters -->
         <div class="dash-filters">
-          <button class="dash-filter active" data-type="all" type="button">All</button>
-          <button class="dash-filter" data-type="350" type="button">Ultra Fast 350kW</button>
-          <button class="dash-filter" data-type="150" type="button">Fast 150kW</button>
-          <button class="dash-filter" data-type="50" type="button">Standard 50kW</button>
-          <button class="dash-filter" data-type="available" type="button"><i class="fas fa-circle" style="color:var(--accent-green);"></i> Available</button>
+          <button class="dash-filter active" data-filter="all" type="button">All</button>
+          <button class="dash-filter" data-filter="complete" type="button">Completed</button>
+          <button class="dash-filter" data-filter="active" type="button">Active</button>
+          <button class="dash-filter" data-filter="pending" type="button">Scheduled</button>
+          <button class="dash-filter" data-filter="failed" type="button">Failed</button>
           <div class="dash-filter">
-            <i class="fas fa-sort"></i>
-            <select id="sortFilter">
-              <option value="default">Sort: Default</option>
-              <option value="name">Sort: Name A-Z</option>
-              <option value="distance">Sort: Distance</option>
+            <i class="fas fa-calendar"></i>
+            <select id="timeFilter">
+              <option value="all">All time</option>
+              <option value="7">Last 7 days</option>
+              <option value="30">Last 30 days</option>
+              <option value="90">Last 3 months</option>
             </select>
           </div>
         </div>
 
-        <!-- Stations grid -->
-        <div class="station-grid" id="stationGrid"></div>
-        <p class="empty-state" id="stationsEmpty" style="display:none; text-align:center; color:var(--text-muted); padding:40px 0;">
-          No stations match your filters.
-        </p>
+        <!-- Sessions table -->
+        <div class="dash-card">
+          <div class="table-responsive">
+            <table class="sessions-table">
+              <thead>
+                <tr>
+                  <th>Station</th>
+                  <th>Date</th>
+                  <th>Duration</th>
+                  <th>Energy</th>
+                  <th>Charger</th>
+                  <th>Status</th>
+                  <th>Cost</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="sessionsBody"></tbody>
+            </table>
+          </div>
+          <p class="empty-state" id="emptyState" style="display:none; text-align:center; color:var(--text-muted); padding:40px 0;">
+            No sessions match your filters.
+          </p>
+        </div>
       </main>
     </div>
   </div>
@@ -97,6 +136,5 @@
   <script src="js/error-boundary.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/dashboard.js"></script>
-  <script src="js/stations.js"></script>
 </body>
 </html>
