@@ -1139,6 +1139,11 @@ ul { list-style: none; }
 }
 .footer-brand i { color: var(--accent); }
 .footer-brand span { color: var(--accent); }
+.footer-brand img {
+  height: 20px;
+  width: auto;
+  flex-shrink: 0;
+}
 .footer-desc {
   font-size: 0.9rem;
   color: var(--text-secondary);
