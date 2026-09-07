@@ -97,6 +97,7 @@ const SparkDashboard = (() => {
 
     const firstName = user.name.split(' ')[0];
     const nameEl = document.getElementById('userName');
+    const mailEl = document.getElementById('userMail');
     const planEl = document.getElementById('userPlan');
     const avatarEl = document.getElementById('userAvatar');
     const greetingEl = document.getElementById('firstName');
@@ -104,6 +105,7 @@ const SparkDashboard = (() => {
     const planDescEl = document.getElementById('planDesc');
 
     if (nameEl) nameEl.textContent = user.name;
+    if (mailEl) mailEl.textContent = user.email || '';
     if (planEl) planEl.textContent = user.plan;
     if (avatarEl) avatarEl.textContent = (user.name[0] || 'U').toUpperCase();
     if (greetingEl) greetingEl.textContent = firstName + ' 👋';
@@ -248,6 +250,32 @@ const SparkDashboard = (() => {
       const btn = e.target.closest('.cancel-session');
       if (btn) cancelSession(btn.dataset.id);
     });
+
+    /* Mobile sidebar toggle */
+    const dashSidebar = document.getElementById('dashSidebar');
+    const dashMenuBtn = document.getElementById('dashMenuBtn');
+    if (dashSidebar && dashMenuBtn) {
+      let overlay = document.querySelector('.dash-overlay');
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'dash-overlay';
+        document.body.appendChild(overlay);
+      }
+      const closeMenu = () => {
+        dashSidebar.classList.remove('open');
+        overlay.classList.remove('show');
+        dashMenuBtn.setAttribute('aria-expanded', 'false');
+      };
+      dashMenuBtn.addEventListener('click', () => {
+        if (dashSidebar.classList.contains('open')) { closeMenu(); return; }
+        dashSidebar.classList.add('open');
+        overlay.classList.add('show');
+        dashMenuBtn.setAttribute('aria-expanded', 'true');
+      });
+      overlay.addEventListener('click', closeMenu);
+      dashSidebar.querySelectorAll('.dash-link').forEach(link => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+    }
 
     /* Logout */
     const logoutBtn = document.getElementById('logoutBtn');

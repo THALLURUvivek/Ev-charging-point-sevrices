@@ -381,6 +381,7 @@
   justify-content: center;
 }
 .auth-footer .footer-brand { margin-bottom: 0; font-size: 1.1rem; }
+.auth-footer .footer-brand img { height: 28px; width: auto; }
 .auth-footer .footer-socials a {
   width: 36px;
   height: 36px;
@@ -423,6 +424,7 @@
 }
 .dash-brand i { color: var(--accent); }
 .dash-brand span { color: var(--accent); }
+.dash-brand img { height: 36px; width: auto; }
 
 .dash-nav { display: flex; flex-direction: column; gap: 4px; flex-grow: 1; }
 .dash-nav-label {
@@ -496,6 +498,40 @@
 }
 .dash-search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,240,255,0.1); }
 
+/* Mobile menu button + overlay */
+.dash-menu-btn {
+  display: none;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.dash-menu-btn:hover {
+  color: #000;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  border-color: transparent;
+}
+.dash-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 2, 12, 0.6);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 90;
+}
+.dash-overlay.show { opacity: 1; visibility: visible; }
+
 .dash-user {
   display: flex;
   align-items: center;
@@ -503,6 +539,7 @@
 }
 .dash-user-info { text-align: right; }
 .dash-user-info .u-name { display: block; font-weight: 700; font-size: 0.88rem; }
+.dash-user-info .u-mail { display: block; font-size: 0.72rem; color: var(--text-muted); max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .dash-user-info .u-plan { display: block; font-size: 0.75rem; color: var(--accent); }
 .dash-avatar {
   width: 42px;
@@ -865,10 +902,11 @@
 @media (max-width: 991.98px) {
   .auth-layout { grid-template-columns: 1fr; }
   .auth-brand-panel { border-right: none; border-bottom: 1px solid var(--border-color); }
-  .dash-sidebar { position: fixed; left: -260px; top: 0; transition: var(--transition); }
+  .dash-menu-btn { display: inline-flex; }
+  .dash-sidebar { position: fixed; left: -260px; top: 0; height: 100vh; overflow-y: auto; transition: var(--transition); box-shadow: none; }
   .dash-sidebar.open { left: 0; box-shadow: 0 0 60px rgba(0,0,0,0.6); }
   .dash-row.three, .dash-row.two { grid-template-columns: 1fr; }
-  .dash-topbar { padding: 16px 20px; }
+  .dash-topbar { padding: 14px 16px; }
   .dash-content { padding: 24px 20px; }
   .dash-search { display: none; }
 }

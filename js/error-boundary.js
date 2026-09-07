@@ -9,7 +9,7 @@
     'index.html', 'login.html', 'signup.html', 'dashboard.html',
     'charging.html', 'stations.html', 'payments.html', 'upgrade.html',
     'profile.html', 'error.html', 'features.html', 'how-it-works.html',
-    'pricing.html', 'testimonials.html', 'get-started.html'
+    'pricing.html', 'testimonials.html', 'get-started.html', 'contact.html'
   ];
 
   try {
