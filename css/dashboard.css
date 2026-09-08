@@ -430,6 +430,15 @@
   height: 100vh;
   z-index: 100;
 }
+.dash-sidebar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 6px 24px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 20px;
+}
 .dash-brand {
   font-family: var(--font-display);
   font-size: 1.4rem;
@@ -437,13 +446,32 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 0 10px 24px;
-  border-bottom: 1px solid var(--border-color);
-  margin-bottom: 20px;
+  padding: 0 10px;
 }
 .dash-brand i { color: var(--accent); }
 .dash-brand span { color: var(--accent); }
 .dash-brand img { height: 40px; width: auto; }
+
+.dash-sidebar-close {
+  display: none;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.dash-sidebar-close:hover {
+  color: #ff6b61;
+  border-color: rgba(255,59,48,0.4);
+  background: rgba(255,59,48,0.08);
+}
 
 .dash-nav { display: flex; flex-direction: column; gap: 4px; flex-grow: 1; }
 .dash-nav-label {
@@ -968,12 +996,14 @@
   .auth-layout { grid-template-columns: 1fr; }
   .auth-brand-panel { border-right: none; border-bottom: 1px solid var(--border-color); }
   .dash-menu-btn { display: inline-flex; }
+  .dash-sidebar-close { display: inline-flex; }
   .dash-sidebar { position: fixed; left: -260px; top: 0; height: 100vh; overflow-y: auto; transition: var(--transition); box-shadow: none; }
   .dash-sidebar.open { left: 0; box-shadow: 0 0 60px rgba(0,0,0,0.6); }
   .dash-row.three, .dash-row.two { grid-template-columns: 1fr; }
-  .dash-topbar { padding: 14px 16px; }
+  .dash-topbar { padding: 12px 16px; }
   .dash-content { padding: 24px 20px; }
   .dash-search { display: none; }
+  .dash-user-info { max-width: 150px; }
 }
 @media (max-width: 575.98px) {
   .stat-row, .dash-summary-strip, .quick-actions { grid-template-columns: 1fr; }
@@ -991,8 +1021,36 @@
   .dash-filter { width: 100%; }
   .dash-filter select { width: 100%; max-width: 100%; font-size: 16px; }
   .dash-filter:has(> select)::after { right: 12px; }
-  .dash-topbar { gap: 10px; }
-  .dash-user-info .u-mail { max-width: 120px; }
+  .dash-topbar { padding: 10px 12px; gap: 10px; }
+  .dash-user { gap: 10px; min-width: 0; }
+  .dash-user-info { text-align: left; flex: 1; min-width: 0; white-space: nowrap; }
+  .dash-user-info .u-name { font-size: 0.82rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .dash-user-info .u-plan,
+  .dash-user-info .u-mail { display: none; }
+  .dash-avatar { width: 38px; height: 38px; flex-shrink: 0; }
+  .dash-logout-btn { width: 38px; height: 38px; flex-shrink: 0; }
+
+  .dash-profile-summary { padding: 18px; gap: 14px; }
+  .dash-profile-info .p-mail {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    font-size: 0.8rem;
+  }
+  .dash-profile-summary .btn-glow { width: 100%; justify-content: center; }
+}
+@media (max-width: 359.98px) {
+  .dash-topbar { padding: 8px 10px; gap: 8px; }
+  .dash-menu-btn { width: 38px; height: 38px; flex-basis: 38px; }
+  .dash-user { gap: 8px; }
+  .dash-user-info { max-width: 90px; }
+  .dash-avatar, .dash-logout-btn { width: 36px; height: 36px; }
+
+  .dash-profile-summary {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .dash-profile-info { width: 100%; }
 }
 
 @media (max-width: 991.98px) {

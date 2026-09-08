@@ -282,6 +282,8 @@ const SparkDashboard = (() => {
         dashMenuBtn.setAttribute('aria-expanded', 'true');
       });
       overlay.addEventListener('click', closeMenu);
+      const sidebarClose = document.getElementById('dashSidebarClose');
+      if (sidebarClose) sidebarClose.addEventListener('click', closeMenu);
       dashSidebar.querySelectorAll('.dash-link').forEach(link => link.addEventListener('click', closeMenu));
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
     }
