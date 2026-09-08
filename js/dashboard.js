@@ -116,6 +116,15 @@ const SparkDashboard = (() => {
         ? 'Unlimited ultra-fast charging with priority access and free idle fees.'
         : 'Fleet-grade charging with bulk pricing and a dedicated manager.';
     }
+
+    const profileNameEl = document.getElementById('profileName');
+    const profileMailEl = document.getElementById('profileMail');
+    const profilePlanEl = document.getElementById('profilePlanTag');
+    const profileAvatarEl = document.getElementById('profileAvatar');
+    if (profileNameEl) profileNameEl.textContent = user.name;
+    if (profileMailEl) profileMailEl.textContent = user.email || '';
+    if (profilePlanEl) profilePlanEl.textContent = user.plan;
+    if (profileAvatarEl) profileAvatarEl.textContent = (user.name[0] || 'U').toUpperCase();
   }
 
   /* ---- Dashboard overview page ---- */
