@@ -262,7 +262,26 @@
   font-size: 0.92rem;
   transition: var(--transition);
 }
-.select-wrap select { appearance: none; cursor: pointer; }
+.select-wrap select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.select-wrap::after {
+  content: '\f078';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  pointer-events: none;
+}
 .input-wrap input:focus, .select-wrap select:focus {
   outline: none;
   border-color: var(--accent);
@@ -770,13 +789,27 @@
   cursor: pointer;
   transition: var(--transition);
   font-family: var(--font-primary);
+  position: relative;
 }
 .dash-filter:hover { border-color: rgba(0,240,255,0.3); }
 .dash-filter.active { background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: #000; font-weight: 600; border-color: transparent; }
 .dash-filter input, .dash-filter select { background: transparent; border: none; color: var(--text-primary); font-size: 0.85rem; }
-.dash-filter select { cursor: pointer; }
+.dash-filter select { cursor: pointer; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .dash-filter select option { background: var(--bg-secondary); }
 .dash-filter input:focus, .dash-filter select:focus { outline: none; }
+.dash-filter:has(> select) { padding-right: 34px; }
+.dash-filter:has(> select)::after {
+  content: '\f078';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  pointer-events: none;
+}
 
 /* Table summary strips */
 .dash-summary-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
@@ -956,7 +989,8 @@
   }
   .select-wrap select { -webkit-appearance: none; appearance: none; }
   .dash-filter { width: 100%; }
-  .dash-filter select { width: 100%; max-width: 100%; }
+  .dash-filter select { width: 100%; max-width: 100%; font-size: 16px; }
+  .dash-filter:has(> select)::after { right: 12px; }
   .dash-topbar { gap: 10px; }
   .dash-user-info .u-mail { max-width: 120px; }
 }

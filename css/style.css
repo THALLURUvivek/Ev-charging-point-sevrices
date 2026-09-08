@@ -126,6 +126,10 @@ ul { list-style: none; }
   padding: 16px 0;
   transition: var(--transition);
   z-index: 1000;
+  background: rgba(5,5,16,0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 .navbar.scrolled {
   background: rgba(5,5,16,0.85);
@@ -174,22 +178,27 @@ ul { list-style: none; }
 .nav-link {
   font-size: 0.92rem;
   font-weight: 600;
-  color: #b8b8d8;
+  color: #c6c6e6;
   padding: 8px 16px !important;
   border-radius: 10px;
+  border: 1px solid transparent;
   transition: var(--transition);
 }
 .nav-link:hover, .nav-link.active {
-  color: #fff;
-  background: linear-gradient(135deg, rgba(0,240,255,0.12), rgba(108,92,231,0.14));
-  border: 1px solid rgba(0,240,255,0.25);
+  color: #000;
+  background: linear-gradient(135deg, #00e5ff, #7c4dff);
+  border: 1px solid rgba(0,229,255,0.8);
+}
+.nav-link:hover {
+  box-shadow: 0 4px 18px rgba(0,229,255,0.35);
+  transform: translateY(-1px);
 }
 .nav-link.active {
-  color: var(--accent);
+  color: #000;
   font-weight: 700;
-  border: 1px solid var(--accent);
-  background: linear-gradient(135deg, rgba(0,240,255,0.18), rgba(108,92,231,0.22));
-  box-shadow: 0 0 20px rgba(0,240,255,0.25);
+  border: 1px solid rgba(0,229,255,0.9);
+  background: linear-gradient(135deg, #00e5ff, #7c4dff);
+  box-shadow: 0 0 24px rgba(0,240,255,0.5), inset 0 1px 0 rgba(255,255,255,0.5);
 }
 
 .btn-glow {
