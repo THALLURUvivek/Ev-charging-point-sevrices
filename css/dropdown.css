@@ -1,0 +1,321 @@
+/* =============================================
+   SPARKCHARGE - Realtime Custom Dropdown
+   Advanced animated dropdown built from scratch.
+   The menu is teleported to <body> (position:fixed)
+   so no parent overflow/transform can ever clip it.
+   ============================================= */
+
+/* --- Hidden native select (kept synced for forms/JS) --- */
+.sc-native-select {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* --- Trigger button --- */
+.sc-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  text-align: left;
+  -webkit-appearance: none;
+  appearance: none;
+  color: inherit;
+}
+
+.sc-dropdown:focus {
+  outline: none;
+}
+
+.sc-dropdown:focus-visible {
+  outline: 2px solid rgba(0, 240, 255, 0.7);
+  outline-offset: 2px;
+}
+
+.sc-dropdown-value {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sc-dropdown-value.sc-pop {
+  animation: scPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes scPop {
+  0% { opacity: 0.4; transform: translateY(3px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.sc-dropdown-arrow {
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease;
+}
+
+.sc-dropdown.open .sc-dropdown-arrow {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
+/* --- Context: form selects (auth / contact) --- */
+.select-wrap .sc-dropdown {
+  padding: 13px 40px 13px 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.select-wrap.has-icon .sc-dropdown {
+  padding-left: 42px;
+}
+
+.select-wrap .sc-dropdown:hover {
+  border-color: rgba(0, 240, 255, 0.35);
+}
+
+.select-wrap .sc-dropdown.open,
+.select-wrap .sc-dropdown:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.12), 0 0 24px rgba(0, 240, 255, 0.08);
+}
+
+.contact-form-card .select-wrap .sc-dropdown {
+  padding: 13px 40px 13px 16px;
+}
+
+/* Suppress the old CSS chevron once the custom trigger exists */
+.select-wrap:has(.sc-dropdown)::after {
+  content: none;
+}
+
+/* --- Context: dashboard filter chips --- */
+.dash-filter {
+  position: relative;
+}
+
+.dash-filter .sc-dropdown {
+  display: inline-flex;
+  width: auto;
+  padding: 0 30px 0 0;
+  background: transparent;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+  transition: color 0.25s ease;
+}
+
+.dash-filter .sc-dropdown:hover,
+.dash-filter .sc-dropdown.open {
+  color: var(--accent);
+}
+
+.dash-filter .sc-dropdown-value {
+  max-width: 170px;
+}
+
+.dash-filter .sc-dropdown-arrow {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+}
+
+.dash-filter .sc-dropdown.open .sc-dropdown-arrow {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.dash-filter:has(.sc-dropdown)::after {
+  content: none;
+}
+
+/* Remove the old arrow-reserved padding once the custom trigger exists */
+.dash-filter:has(> select):has(.sc-dropdown) {
+  padding-right: 16px;
+}
+
+/* Icons beside a dropdown must not steal clicks */
+.select-wrap > i,
+.dash-filter > i {
+  pointer-events: none;
+}
+
+/* --- Menu (teleported to <body>, fixed) --- */
+.sc-dropdown-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99990;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  background: linear-gradient(160deg, rgba(21, 21, 62, 0.97), rgba(10, 10, 26, 0.99));
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(0, 240, 255, 0.18);
+  border-radius: 16px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 0 44px rgba(0, 240, 255, 0.08);
+  max-height: 264px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px) scale(0.98);
+  transform-origin: top center;
+  transition: opacity 0.28s ease, transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.28s;
+}
+
+.sc-dropdown-menu.drop-up {
+  transform: translateY(10px) scale(0.98);
+  transform-origin: bottom center;
+}
+
+.sc-dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* --- Items --- */
+.sc-dropdown-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.2s ease;
+}
+
+.sc-dropdown-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(0, 240, 255, 0.16), rgba(108, 92, 231, 0.13));
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  border-radius: inherit;
+}
+
+.sc-dropdown-item:hover::before,
+.sc-dropdown-item.hover::before {
+  opacity: 1;
+}
+
+.sc-dropdown-item-text {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.sc-dropdown-item:hover .sc-dropdown-item-text,
+.sc-dropdown-item.hover .sc-dropdown-item-text {
+  color: #ffffff;
+}
+
+.sc-dropdown-item.active .sc-dropdown-item-text {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.sc-dropdown-item.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.sc-dropdown-check {
+  position: relative;
+  z-index: 1;
+  color: var(--accent);
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: scale(0.4) rotate(-20deg);
+  transition: opacity 0.2s ease, transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sc-dropdown-item.active .sc-dropdown-check {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* --- Scrollbar --- */
+.sc-dropdown-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sc-dropdown-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sc-dropdown-menu::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.25);
+  border-radius: 99px;
+}
+
+.sc-dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.45);
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+  .dash-filter .sc-dropdown-value {
+    max-width: 120px;
+  }
+  .dash-filter .sc-dropdown {
+    max-width: 100%;
+  }
+}
+
+/* Touch / native-app behaviour */
+.sc-dropdown,
+.sc-dropdown-item {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.sc-dropdown-item {
+  touch-action: manipulation;
+}
+
+/* Short landscape screens: cap the menu height so it never dominates */
+@media (max-height: 520px) {
+  .sc-dropdown-menu {
+    max-height: 40vh;
+  }
+}
